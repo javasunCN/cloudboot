@@ -1,0 +1,51 @@
+### 服务名称
+spring:
+  application:
+    name: cloudboot-eureka-client
+
+### 服务端口号
+server:
+  port: 8201
+
+
+### Eureka配置
+eureka:
+  instance:
+    prefer-ip-address: true
+    status-page-url-path: /actuator/info #eureka注册中心的url
+    health-check-url-path: /actuator/health #健康检查的url
+  client:
+    service-url:
+      defaultZone: http://euraka1.com:8100/eureka/
+    #### 是否将当前项目注册到注册中心
+    register-with-eureka: true
+    #### 自己为注册中心，不需要去检索服务信息
+    fetch-registry: true
+
+### 监控配置
+management:
+  endpoint:
+    # /actuator/health
+    health:
+      show-details: always
+  endpoints:
+    # /actuator/metrics 格式:/metrics/{metric-name}
+    jmx:
+      exposure:
+        exclude: "shutdown"
+        include: "*"
+    web:
+      exposure:
+        include: "*"
+        exclude: env,beans
+  server:
+    # 端口号唯一不能冲突
+    port: 9201
+    # 使用域名访问不能使用IP访问
+    address: euraka1.com
+
+# /actuator/info
+info:
+  server-name: "Eureka客户端 - XXX服务!"
+  server-author: "it_javasun@yeah.net"
+  server-copyright: "京ICP备16018757号-1"
