@@ -14,6 +14,10 @@ eureka:
     prefer-ip-address: true
     status-page-url-path: /actuator/info #eureka注册中心的url
     health-check-url-path: /actuator/health #健康检查的url
+    # Eureka服务端向客户端发送心跳检查的间隔时间，单位秒，默认30
+    lease-renewal-interval-in-seconds: 1
+    # Eureka服务端收到最后一次心跳等待上线时间，单位秒，超过删除
+    lease-expiration-duration-in-seconds: 10
   client:
     service-url:
       defaultZone: http://euraka1.com:8100/eureka/,http://euraka1.com:8101/eureka/

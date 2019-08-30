@@ -30,7 +30,9 @@ eureka:
 ############################################################
 management:
   ## 自定义Management Server地址
-  #server:
+  server:
+    #关闭自我保护机制(线上环境不推荐、测试环境推荐)
+    #enable-self-preservation: false
     # 端口号唯一不能冲突
     #port: 9100
     # 使用域名访问不能使用IP访问

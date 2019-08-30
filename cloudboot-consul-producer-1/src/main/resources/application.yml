@@ -1,39 +1,26 @@
 ### 服务名称
 spring:
   application:
-    name: cloudboot-eureka-client1
+    name: cloudboot-consul-product
+
 
 ### 服务端口号
 server:
-  port: 8200
+  port: 8103
 
-# 打印详细信息
-debug: false
 
-### Eureka配置
-eureka:
-  instance:
-    prefer-ip-address: true
-    status-page-url-path: /actuator/info #eureka注册中心的url
-    health-check-url-path: /actuator/health #健康检查的url
-    # Eureka服务端向客户端发送心跳检查的间隔时间，单位秒，默认30
-    lease-renewal-interval-in-seconds: 1
-    # Eureka服务端收到最后一次心跳等待上线时间，单位秒，超过删除
-    lease-expiration-duration-in-seconds: 10
-  client:
-    service-url:
-      defaultZone: http://euraka1.com:8100/eureka/,http://euraka1.com:8101/eureka/
-    #### 是否将当前项目注册到注册中心
-    register-with-eureka: true
-    #### 自己为注册中心，不需要去检索服务信息
-    fetch-registry: true
+
+
+
 
 ############################################################
 ### 监控配置 https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-endpoints.html#production-ready-endpoints
 ############################################################
 management:
   ## 自定义Management Server地址
-  #server:
+  server:
+  #关闭自我保护机制(线上环境不推荐、测试环境推荐)
+  #enable-self-preservation: false
   # 端口号唯一不能冲突
   #port: 9100
   # 使用域名访问不能使用IP访问
@@ -42,6 +29,9 @@ management:
     # /actuator/health
     health:
       show-details: always
+    jolokia:
+      config:
+        debug: true
   endpoints:
     # /actuator/metrics 格式:/metrics/{metric-name}
     jmx:
@@ -63,3 +53,6 @@ info:
   server-name: "Eureka注册中心-服务端!"
   server-author: "it_javasun@yeah.net"
   server-copyright: "京ICP备16018757号-1"
+
+
+

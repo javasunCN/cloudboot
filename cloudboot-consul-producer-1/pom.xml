@@ -8,10 +8,10 @@
 		<version>2.1.7.RELEASE</version>
 	</parent>
 	<groupId>com.cloudboot</groupId>
-	<artifactId>cloudboot-eureka-server</artifactId>
+	<artifactId>cloudboot-consul-producer-1</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>cloudboot-eureka-server</name>
-	<description>Eureka Server</description>
+	<name>cloudboot-consul-producer-1</name>
+	<description>Consul Server</description>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -22,19 +22,19 @@
 	</properties>
 
 	<dependencies>
+
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
+			<artifactId>spring-cloud-starter-consul-discovery</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-actuator</artifactId>
 		</dependency>
 
-		<!-- Spring Boot Actuator对外暴露应用的监控信息，Jolokia提供使用HTTP接口获取JSON格式的数据 -->
 		<dependency>
-			<groupId>org.jolokia</groupId>
-			<artifactId>jolokia-core</artifactId>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-autoconfigure</artifactId>
 		</dependency>
 
 		<dependency>
@@ -48,6 +48,11 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+
 	</dependencies>
 
 	<dependencyManagement>
@@ -71,14 +76,6 @@
 					<!--fork :  如果没有该项配置，可能devtools不会起作用，即应用不会restart -->
 					<fork>true</fork>
 				</configuration>
-				<executions>
-					<execution>
-						<id>build-info</id>
-						<goals>
-							<goal>build-info</goal>
-						</goals>
-					</execution>
-				</executions>
 			</plugin>
 		</plugins>
 	</build>
