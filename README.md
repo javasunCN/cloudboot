@@ -1,6 +1,5 @@
 
-# SpringCloud
-# SpringBoot
+# SpringCloud2 + SpringBoot2
 
 # Eureka集群原理：
 ```text
@@ -21,12 +20,12 @@
 2、访问地址：http://127.0.0.1:8500/ui/#/dc1/services
 
 3、开启Consul集群
-    10.200.110.90启动consul
-    consul agent -server -bootstrap-expect=3 -data-dir=/tmp/consul -node=10.200.110.90 -bind=10.200.110.90 -client=0.0.0.0 -datacenter=shenzhen -ui
-    10.200.110.91启动consul
-    consul agent -server -bootstrap-expect 3 -data-dir /tmp/consul -node 10.200.110.91 -bind=10.200.110.91 -client=0.0.0.0 -datacenter shenzhen -ui
-    10.200.110.93启动consul
-    consul agent -server -bootstrap-expect 3 -data-dir /tmp/consul -node 10.200.110.93 -bind=10.200.110.93 -client=0.0.0.0 -datacenter shenzhen -ui
+    24.200.110.90启动consul
+    consul agent -server -bootstrap-expect=3 -data-dir=/tmp/consul -node=24.200.110.90 -bind=24.200.110.90 -client=0.0.0.0 -datacenter=shenzhen -ui
+    24.200.110.91启动consul
+    consul agent -server -bootstrap-expect 3 -data-dir /tmp/consul -node 24.200.110.91 -bind=24.200.110.91 -client=0.0.0.0 -datacenter shenzhen -ui
+    24.200.110.93启动consul
+    consul agent -server -bootstrap-expect 3 -data-dir /tmp/consul -node 24.200.110.93 -bind=24.200.110.93 -client=0.0.0.0 -datacenter shenzhen -ui
     
     3.1、名词解释:
       server： 以server身份启动。默认是client
@@ -43,9 +42,9 @@
         要加入这样的集群，它只需要知道这个集群中的一个节点即可。它加入后，将会和这个member gossip（交谈）并迅速发现集群中的其他节点。
         一个consul agent可以加入任何类型的其他agent，而不只是那些运行于server mode的agent。
         让consul加入集群：
-        10.200.110.91加入10.200.110.90
-        91上执行命令：consul join 10.200.110.90
-        10.200.110.93加入10.200.110.90
-        93上执行命令：consul join 10.200.110.90
+        24.200.110.91加入10.200.110.90
+        91上执行命令：consul join 24.200.110.90
+        24.200.110.93加入10.200.110.90
+        93上执行命令：consul join 24.200.110.90
         
 ```
