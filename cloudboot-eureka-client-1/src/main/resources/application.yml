@@ -16,7 +16,7 @@ eureka:
     health-check-url-path: /actuator/health #健康检查的url
   client:
     service-url:
-      defaultZone: http://euraka1.com:8100/eureka/
+      defaultZone: http://euraka1.com:8100/eureka/,http://euraka1.com:8101/eureka/
     #### 是否将当前项目注册到注册中心
     register-with-eureka: true
     #### 自己为注册中心，不需要去检索服务信息
