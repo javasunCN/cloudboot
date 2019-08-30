@@ -1,4 +1,4 @@
-package com.cloudboot.server;
+package com.cloudboot.client;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -9,10 +9,10 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
  */
 @SpringBootApplication
 @EnableEurekaClient
-public class CloudbootEurekaClientApplication {
+public class CloudbootEurekaClient1Application {
 
 	public static void main(String[] args) {
-		SpringApplication.run(CloudbootEurekaClientApplication.class, args);
+		SpringApplication.run(CloudbootEurekaClient1Application.class, args);
 	}
 
 }

@@ -1,0 +1,23 @@
+### 服务名称
+spring:
+  application:
+    name: cloudboot-eureka-server-cluster
+
+### 服务端口号
+server:
+  port: 8100
+
+
+### Eureka配置
+eureka:
+  instance:
+    ### 注册中心IP地址
+    hostname: 127.0.0.1
+  client:
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/cloudboot-eureka-server-cluster/
+    #### 是否将当前项目注册到注册中心
+    register-with-eureka: false
+    #### 自己为注册中心，不需要去检索服务信息
+    fetch-registry: false
+

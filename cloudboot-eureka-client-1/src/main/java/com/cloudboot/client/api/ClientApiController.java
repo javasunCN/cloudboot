@@ -1,4 +1,4 @@
-package com.cloudboot.server.api;
+package com.cloudboot.client.api;
 
 import com.netflix.discovery.EurekaClient;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,12 +24,11 @@ public class ClientApiController {
 
     @GetMapping("/getService")
     public String getService() {
-        return "接口提供服务 cloudboot-eureka-client-2";
+        return "接口提供服务 cloudboot-eureka-client-1";
     }
 
     @GetMapping("/greeting")
     public String greeting() {
         return String.format("Hello from '%s'!", eurekaClient.getApplication(appName).getName());
     }
-
 }

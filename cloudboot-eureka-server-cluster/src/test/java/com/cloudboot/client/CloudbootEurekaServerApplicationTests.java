@@ -1,4 +1,4 @@
-package com.cloudboot.server;
+package com.cloudboot.client;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
