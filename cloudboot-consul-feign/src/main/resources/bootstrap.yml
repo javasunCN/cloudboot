@@ -1,0 +1,18 @@
+spring:
+  ### Consul配置
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        instance-id: ${spring.application.name}:${spring.cloud.client.ip-address}:${server.port} #实例ID
+        # actuator 健康检查的 url 路径
+        # 默认为 为${management.endpoints.web.base-path} +/health
+        health-check-path: /actuator/health
+        # 自定义健康检查的 url(适合于不适用 actuator 的场景)
+        #health-check-url: /actuator/health
+        health-check-timeout: 15s
+        # 健康检查的频率, 默认 10 秒
+        health-check-interval: 15s
+
+

@@ -1,0 +1,58 @@
+### 服务名称
+spring:
+  application:
+    name: cloudboot-feign
+
+
+### 服务端口号
+server:
+  port: 8220
+
+
+
+
+
+
+############################################################
+### 监控配置 https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-endpoints.html#production-ready-endpoints
+############################################################
+management:
+  ## 自定义Management Server地址
+  server:
+  #关闭自我保护机制(线上环境不推荐、测试环境推荐)
+  #enable-self-preservation: false
+  # 端口号唯一不能冲突
+  #port: 9100
+  # 使用域名访问不能使用IP访问
+  #address: euraka1.com
+  endpoint:
+    # /actuator/health
+    health:
+      show-details: always
+    jolokia:
+      config:
+        debug: true
+  endpoints:
+    # /actuator/metrics 格式:/metrics/{metric-name}
+    jmx:
+      exposure:
+        exclude: "shutdown"
+        include: "*"
+    # 暴露所有端点
+    web:
+      exposure:
+        include: "*"
+        # exclude: ["env", "beans"]
+
+
+# 自定义应用信息 /actuator/info
+info:
+  server-encoding: @project.build.sourceEncoding@
+  server-java-source: @java.version@
+  server-java-target: @java.version@
+  server-name: "Eureka注册中心-服务端!"
+  server-author: "it_javasun@yeah.net"
+  server-copyright: "京ICP备16018757号-1"
+
+
+
